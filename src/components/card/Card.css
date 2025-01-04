@@ -69,3 +69,38 @@
     padding-right: 5px;
     padding-top: 7cqbpx;
 }
+
+.cardTitleEdit {
+    padding: 0px 5px 0px 5px;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: #D9E0F3;
+}
+
+.cardEditText {
+    margin-top: 10px;
+    width: 250px;
+    height: 100px;
+    resize: none;
+    background-color: white;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: #D9E0F3;
+}
+
+.saveButton {
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 80%;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: #D9E0F3;
+    transition-duration: 300ms;
+    padding: 0px 5px 0px 5px;
+}
+
+.saveButton:hover {
+    border-color: #4573f1;
+}
