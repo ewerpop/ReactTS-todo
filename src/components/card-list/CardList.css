@@ -1,0 +1,45 @@
+.cardList {
+    width: 400px;
+    border-radius: 20px;
+    background-color: #F2F6FF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 18px;
+}
+
+.addCardButton {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 330px;
+    height: 40px;
+    background-color: none;
+    border-width: 2px;
+    border-color: #D9E0F3;
+    border-style: dashed;
+    border-radius: 14px;
+    transition: 300ms;
+}
+
+.addCardButton:hover {
+    border-color: #b3c6f8;
+}
+
+.iconTextBlock {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 5px;
+    padding-left: 15px;
+    align-items: center;
+}
+
+.filters {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px 0px 20px;
+}

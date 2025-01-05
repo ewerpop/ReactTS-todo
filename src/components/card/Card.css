@@ -1,0 +1,106 @@
+.card {
+    width: 330px;
+    min-height: 200px;
+    max-height: 250px;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: #D9E0F3;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    transition: 300ms;
+}
+
+.card:hover {
+    border-color: #b3c6f8;
+}
+
+.cardHeader {
+    border-radius: 20px 20px 0px 0px;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 7px;
+    padding-right: 8px;
+}
+
+.cardTitle {
+    display: inline-block;
+    margin-top: auto;
+    margin-bottom: auto;
+    align-items: center;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: calc(80%);
+}
+
+.cardBottom {
+    border-radius: 0px 0px 20px 20px;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 7px;
+    padding-right: 10px;
+    bottom: 0
+}
+
+.cardData {
+    opacity: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardText {
+    text-wrap: pretty;
+    opacity: 30%;
+    text-align: left;
+}
+
+.cardBody {
+    width: 100%;
+    min-height: 120px;
+    max-height: 170px;
+    display: flex;
+    padding-left: 6px;
+    padding-right: 5px;
+    padding-top: 7cqbpx;
+}
+
+.cardTitleEdit {
+    padding: 0px 5px 0px 5px;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: #D9E0F3;
+}
+
+.cardEditText {
+    margin-top: 10px;
+    width: 250px;
+    height: 100px;
+    resize: none;
+    background-color: white;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: #D9E0F3;
+}
+
+.saveButton {
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 80%;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: #D9E0F3;
+    transition-duration: 300ms;
+    padding: 0px 5px 0px 5px;
+}
+
+.saveButton:hover {
+    border-color: #4573f1;
+}
