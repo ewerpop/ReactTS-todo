@@ -9,7 +9,6 @@ import shortid from "shortid";
 
 export const CardList: FunctionComponent = () => {
   const {state, dispatch} = useContext(StateContext);
-  console.log(shortid.generate());
   const handleAddCard = () => {
       dispatch({
           type: "ADD_CARD",
@@ -23,18 +22,28 @@ export const CardList: FunctionComponent = () => {
           }
       })
   }
+  const handleSortByDate = (value: number) => {
+    //небольшой костыль для сортировки, в id пишем что угодно, а в title я передаю направление сортировки
+    dispatch({type: 'SORT_BY_DATE', payload: {id: 'doesnt_matter', title: String(value)}})
+  }
+  const handleShow = (value: string) => {
+      if (value === 'Все') dispatch ({type: 'SHOW_ALL', payload: {id: 'doesnt_matter', title: 'doesnt_matter'}})
+        if (value === 'Выполненные') dispatch ({type: 'SHOW_DONE', payload: {id: 'doesnt_matter', title: 'doesnt_matter'}})
+        if (value === 'Не выполненные') dispatch ({type: 'SHOW_NOT_DONE', payload: {id: 'doesnt_matter', title: 'doesnt_matter'}})
+  }
   return (
     <CardListLayout
-      filters={<Filters onClick={() => {}} />}
+      filters={<Filters onShow={handleShow} onSort={handleSortByDate} />}
       addCardButton={<AddCardButton onClick={handleAddCard} />}
       cards={state.map((card: CardType) => (
         <Card
           key={card.id}
+          isDone={card.isDone || false}
           id={card.id}
-          isEdit={card.isEdit}
-          date={card.date}
-          cardTitle={card.title}
-          cardText={card.text}
+          isEdit={card.isEdit || false}
+          date={card.date || 345678}
+          cardTitle={card.title || "title"}
+          cardText={card.text || "text"}
         />
       ))}
     />

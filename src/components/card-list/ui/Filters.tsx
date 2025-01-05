@@ -1,19 +1,33 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 import "../CardList.css";
 import { RadioButtons } from "../../ui/radio-buttons";
 import { SortBy } from "../../ui/sortby";
 
 interface Props {
-    onClick: () => void
+  onSort: (value: number) => void;
+  onShow: (value: string) => void;
 }
 
-export const Filters: FunctionComponent<Props> = ({onClick}) => {
+export const Filters: FunctionComponent<Props> = ({ onSort, onShow }) => {
+  const [current, setCurrent] = useState<number>(1);
   return (
     <div className="filters">
-        <RadioButtons onChange={(value) => console.log(value)} plans={['Все', 'Выполненные', 'Не выполненные']} />
-        <div>
-            <SortBy onClick={(value) => console.log(value)} label="По времени" defaultCurrent={1} />
-        </div>
+      <RadioButtons
+        onChange={(value) => {
+          onShow(value);
+          onSort(1);
+          setCurrent(1);
+        }}
+        plans={["Все", "Выполненные", "Не выполненные"]}
+      />
+      <div>
+        <SortBy
+          onClick={onSort}
+          current={current}
+          setCurrent={setCurrent}
+          label="По времени"
+        />
+      </div>
     </div>
   );
 };

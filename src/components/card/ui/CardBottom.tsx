@@ -6,9 +6,11 @@ interface Props {
   addData: string;
   isEdit: boolean;
   onSubmit: () => void
+  onCheck: (value: boolean) => void;
+  isDone: boolean
 }
 
-export const CardBottom: FunctionComponent<Props> = ({ addData, isEdit, onSubmit }) => {
+export const CardBottom: FunctionComponent<Props> = ({ addData, isEdit, onSubmit, onCheck, isDone }) => {
   if (isEdit) {
     return (
       <div className="cardBottom">
@@ -20,7 +22,7 @@ export const CardBottom: FunctionComponent<Props> = ({ addData, isEdit, onSubmit
   return (
     <div className="cardBottom">
       <div className="cardData">{addData}</div>
-      <Check onChange={() => {}} defaultState={false} />
+      <Check onChange={onCheck} defaultState={isDone} />
     </div>
   );
 };

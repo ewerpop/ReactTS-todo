@@ -7,9 +7,11 @@ interface Props {
   isEdit: boolean;
   newCardTitle: string
   onChangeCardTitle: (value: string) => void
+  handleDelete: () => void
+  handleEdit: () => void
 }
 
-export const CardHeader: FunctionComponent<Props> = ({ cardName, isEdit, onChangeCardTitle, newCardTitle }) => {
+export const CardHeader: FunctionComponent<Props> = ({ cardName, isEdit, onChangeCardTitle, newCardTitle, handleDelete, handleEdit }) => {
   if (isEdit) {
     return (
       <div className="cardHeader">
@@ -20,7 +22,7 @@ export const CardHeader: FunctionComponent<Props> = ({ cardName, isEdit, onChang
   return (
     <div className="cardHeader">
       <h1 className="cardTitle">{cardName}</h1>
-      <OptionsMenu />
+      <OptionsMenu handleDelete={handleDelete} handleEdit={handleEdit}/>
     </div>
   );
 };

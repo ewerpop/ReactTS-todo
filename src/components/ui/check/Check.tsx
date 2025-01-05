@@ -2,15 +2,15 @@ import { FunctionComponent, useState } from "react";
 import { Checkbox } from "@headlessui/react";
 
 interface Props {
-  onChange: () => void;
+  onChange: (value: boolean) => void;
   defaultState: boolean;
 }
 
 export const Check: FunctionComponent<Props> = ({ onChange, defaultState }) => {
-  const [enabled, setEnabled] = useState(defaultState);
+  const [enabled, setEnabled] = useState<boolean>(defaultState);
   const handleChange = () => {
     setEnabled(!enabled);
-    onChange();
+    onChange(enabled);
   };
   return (
     <div className="flex items-center justify-center">

@@ -10,7 +10,8 @@ interface Props {
   cardTitle: string;
   date: number;
   isEdit: boolean;
-  id: string 
+  id: string;
+  isDone: boolean
 }
 
 export const Card: FunctionComponent<Props> = ({
@@ -18,7 +19,8 @@ export const Card: FunctionComponent<Props> = ({
   cardTitle,
   date,
   isEdit,
-  id
+  id,
+  isDone
 }) => {
     const {dispatch} = useContext(StateContext)
   const formatDate = new Date(date).toLocaleString("ru-RU", {
@@ -33,15 +35,24 @@ export const Card: FunctionComponent<Props> = ({
     if (newCardText === '' || newCardTitle === '') return
     dispatch({type: "UPDATE_CARD", payload: {id: id, title: newCardTitle, text: newCardText, date: Date.now(), isEdit: false, isDone: false}})
   }
+  const handleCheck = () => {
+    dispatch({type: 'CHANGE_DONE_STATUS', payload: {id: id}})
+  }
+  const handleDelete = () => {
+      dispatch({type: 'DELETE_CARD', payload: {id: id}})
+  }
+  const handleEdit = () => {
+      dispatch({type: 'SET_EDIT', payload: {id: id}})
+  }
   return (
     <CardLayout
       CardHeader={
-        <CardHeader onChangeCardTitle={setNewCardTitle} newCardTitle={newCardTitle} isEdit={isEdit} cardName={cardTitle} />
+        <CardHeader handleEdit={handleEdit} handleDelete={handleDelete} onChangeCardTitle={setNewCardTitle} newCardTitle={newCardTitle} isEdit={isEdit} cardName={cardTitle} />
       }
       CardBody={
         <CardBody cardText={cardText} isEdit={isEdit} onChangeCardText={setNewCardText} newCardText={newCardText} />
       }
-      CardBottom={<CardBottom onSubmit={handleSubmit} isEdit={isEdit} addData={formatDate} />}
+      CardBottom={<CardBottom isDone={isDone} onCheck={handleCheck} onSubmit={handleSubmit} isEdit={isEdit} addData={formatDate} />}
     />
   );
 };
